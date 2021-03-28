@@ -1,0 +1,29 @@
+{% if alert_msg %}
+<div class="alert alert-{{ alert_msg.type }}" role="alert">
+  {{ alert_msg.msg }}
+</div>
+{% endif %}
+
+<div style="text-align: center;margin-top: 100px;margin-bottom: 30px;font-size: 20px;">
+  Sign-Up
+</div>
+
+<div style="margin: 0 auto;width: fit-content;text-align: right;">
+  <form method="POST">
+    <div>
+      <span>ID :</span> 
+      <input name="userid" style="margin-bottom:10px" class="form-control" type="text" placeholder="ID">
+    </div>
+    <div>
+      <span>username :</span> 
+      <input name="username" style="margin-bottom:10px" class="form-control" type="text" placeholder="username">
+    </div>
+    <div>
+      <span>password :</span> 
+      <input name="password" style="margin-bottom:10px" class="form-control" type="password" placeholder="Password">
+    </div>
+    <div>
+      <input type="submit" class="btn btn-primary" value="Signup" />
+    </div>
+    </form>
+</div>

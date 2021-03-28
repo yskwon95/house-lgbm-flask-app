@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block alert %}
+    {% if alert_msg %}
+    <div class="alert alert-{{ alert_msg.type }}" role="alert">
+    {{ alert_msg.msg }}
+    </div>
+    {% endif %}
+{% endblock %}
+
+
+
+{% block main_body %}
+    <div id="loadingcat" style="display:none;">
+        <img src="https://media4.giphy.com/media/xBpEWE1hv06PF1jINR/giphy.gif?cid=ecf05e47m7xho91v0f65glibqzbsdkvnckh3fg7f7n8gycr4&rid=giphy.gif" alt="loading-cat">
+        <div style="margin: 0 auto;text-align: center;font-size: 50px;font-weight: bold;font-family: 'SDSamliphopangche_Outline';">
+            측정중입니다...
+        </div>
+    </div>    
+
+    <form method="POST" action="/api/predict" id="predict" style="width:500px;margin:50px auto;">
+        <select name="area" class="selectpicker form-control" data-show-subtext="true" data-live-search="true">
+            {% for con in area_list %}
+            <option>{{con.areaname}}</option>
+            {% endfor %}
+        </select>
+        <h1></h1>
+        <select name="bubjung" class="selectpicker form-control" data-show-subtext="true" data-live-search="true">
+            {% for con in bubjung_list %}
+            <option>{{con.bubjungname}}</option>
+            {% endfor %}
+        </select>
+        <h1></h1>
+        <select name="apartment" class="selectpicker form-control" data-show-subtext="true" data-live-search="true">
+            {% for con in apart_list %}
+            <option>{{con.apartname}}</option>
+            {% endfor %}
+        </select>
+        <h1></h1>
+        <input name="size" style="margin-bottom:10px" class="form-control" type="text" placeholder="단위면적 입력하세요(m^2)">
+        <input name="floor" style="margin-bottom:10px" class="form-control" type="text" placeholder="층을 입력하세요">
+        <input name="year_of_built" style="margin-bottom:10px" class="form-control" type="text" placeholder="건축년도을 입력하세요">
+        <button type="submit" class="btn btn-primary" value="예측하기" id="submit-to-predict" onclick="document.getElementById('loadingcat').style='display:block;margin:100px auto;width:453px;margin-bottom:300px;'" style="float:right;">적정가 측정하기</button>
+    </form>
+
+
+{% endblock %}
+

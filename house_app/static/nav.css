@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'SDSamliphopangche_Outline';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/SDSamliphopangche_Outline.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+    font-family: '나눔 고딕', 'NanumGothic', '돋움', 'Dotum', sans-serif;
+}
+.float-from-right{
+    float:right;
+    font-size: 15px;
+}
+.nav-link{
+    font-size:24px;
+    padding: 0 30px;
+}
+#logout{
+    margin: 0 10px;
+    background-color: #5cb85c;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+    border-color: #4cae4c;
+}

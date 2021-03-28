@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+
+{% block alert %}
+    {% if alert_msg %}
+    <div class="alert alert-{{ alert_msg.type }}" role="alert">
+    {{ alert_msg.msg }}
+    </div>
+    {% endif %}
+{% endblock %}
+
+{% block main_body %}
+<h3>측정중입니다.....</h3>
+{% endblock %}

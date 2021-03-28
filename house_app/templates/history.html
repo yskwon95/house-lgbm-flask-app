@@ -1,0 +1,55 @@
+
+{% extends 'base.html' %}
+
+{% block head %}
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+{% endblock %}
+
+{% block alert %}
+    {% if alert_msg %}
+    <div class="alert alert-{{ alert_msg.type }}" role="alert">
+    {{ alert_msg.msg }}
+    </div>
+    {% endif %}
+{% endblock %}
+
+
+{% block main_body %}
+<div class="container" style="border: 2px solid #d4edda;padding: 30px;margin: 50px auto;width: 900px;border-radius: 20px;">
+    <div class="row custyle" style="margin: 0 auto; width: 800px;">
+    <table class="table table-striped custab">
+		<thead>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">구</th>
+				<th scope="col">법정동</th>
+				<th scope="col">아파트</th>
+				<th scope="col">단위면적</th>
+				<th scope="col">층</th>
+				<th scope="col">건축년도</th>
+				<th scope="col">적정금액(만원)</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for ho in house_list %}
+			<tr>
+				<th scope="row">{{ ho.house_id }}</th>
+				<td>{{ ho.area }}</td>
+				<td>{{ ho.bubjung }}</td>
+				<td>{{ ho.apartment }}</td>
+				<td>{{ ho.size }}</td>
+				<td>{{ ho.floor }}</td>
+				<td>{{ ho.year_of_built }}</td>
+				<td>{{ ho.prediction }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+    </table>
+    {% if not house_list %}
+        <h5>데이터가 없습니다.</h5>
+    {% endif %}
+    </div>
+</div>
+{% endblock %}

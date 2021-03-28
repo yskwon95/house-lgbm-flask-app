@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="static/homepage.css">
+{% endblock %}
+
+{% block alert %}
+    {% if alert_msg %}
+    <div class="alert alert-{{ alert_msg.type }}" role="alert">
+    {{ alert_msg.msg }}
+    </div>
+    {% endif %}
+{% endblock %}
+
+
+{% block main_body %}
+<div class="container">
+    <div class="row">
+        <img src="static/intro.png" style="width: 50%; padding: 10px; margin:0 auto;">
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+		<div class="panel panel-default widget" id="reply-area" style="margin:50px">
+			<div class="panel-heading" style="background-color:#d4edda">
+				<span class="glyphicon glyphicon-comment"></span>
+				<h3 class="panel-title">방명록</h3>
+			</div>
+			{% if repl %}
+			<div class="panel-body">
+				<ul class="list-group">
+					{% for re in repl %}
+					<li class="list-group-item">
+						<div class="row">
+							<div class="col-xs-10 col-md-11">
+								<div>
+									<h3 class="inline-bl" style="margin:0;padding-bottom:8px;font-size: 20px;font-weight: bold;">
+                                        {{ re.reply_id }} {{ re.userid }}
+                                    </h3>
+									<div class="mic-info inline-bl">
+										{{ re.time }}
+									</div>
+								</div>
+								<div class="comment-text">
+									{{ re.replies }}
+								</div>
+							</div>
+						</div>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+			{% endif %}
+			<div class="col">
+					<div class="panel-body">
+						<form method="POST" role="form">
+							<fieldset>
+								<div class="form-group">
+									<textarea name="reply" class="form-control" rows="3" placeholder="Write in your wall" autofocus=""></textarea>
+								</div>
+								<button type="submit" class="[ btn btn-success ]" data-loading-text="Loading..." style="margin:15px;">Post reply</button>
+							</fieldset>
+						</form>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

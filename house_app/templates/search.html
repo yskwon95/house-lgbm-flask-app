@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block alert %}
+    {% if alert_msg %}
+    <div class="alert alert-{{ alert_msg.type }}" role="alert">
+    {{ alert_msg.msg }}
+    </div>
+    {% endif %}
+{% endblock %}
+
+{% block main_body %}
+<div style="margin: 50px auto; width:300px;">
+    <h3>간단한 키워드로 검색하세요</h3>
+    <p>(예: 강남한신휴플러스8단지 > 휴플러스로검색)</p>
+</div>
+
+<form method="POST" style="margin:50px auto;width:300px;">
+    <input name="finding" style="margin-bottom:10px" class="form-control" type="text" placeholder="아파트를 검색하세요" style="display: inline; width:200px;">
+    <input type="submit" class="btn btn-primary" value="검색" style="display:inline;"/>
+</form>
+
+<div class="mapouter" style="margin: 0 auto 30px auto;">
+    <div class="gmap_canvas">
+        <iframe width="500" height="500" id="gmap_canvas" src="https://m.map.naver.com/" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+        <a href="https://embedgooglemap.net/maps/17"></a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:500px;}</style><a href="https://www.embedgooglemap.net">integrate google maps into website</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:500px;}</style>
+    </div>
+</div>
+{% endblock %}
